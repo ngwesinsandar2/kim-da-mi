@@ -25,25 +25,25 @@ export default function Home() {
   return (
     <PageWrapper>
       <main>
-        <div className="grid grid-cols-2 gap-14 items-baseline">
-          <section>
+        <div className="grid grid-cols-2 lg:gap-14 items-baseline">
+          <section className='col-span-full lg:col-start-1 lg:col-end-2'>
             <h1 className='text-5xl pb-4'>Kim Da-mi [김다미]</h1>
-            {
-              abouts.map(about => {
-                return (
-                  <ul>
-                    <li>
+            <ul>
+              {
+                abouts.map(about => {
+                  return (
+                    <li key={about.id}>
                       <span className='font-bold'>{about.title}</span>
                       <span> - </span>
                       <span>{about.fact}</span>
                     </li>
-                  </ul>
-                )
-              })
-            }
+                  )
+                })
+              }
+            </ul>
           </section>
 
-          <section className='flex justify-end'>
+          <section className='flex justify-end col-span-full lg:col-start-2'>
             <div className="grid grid-cols-2">
               <div className='col-start-2'>
                 <Image

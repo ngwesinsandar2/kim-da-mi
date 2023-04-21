@@ -19,34 +19,39 @@ const MovieDetails = () => {
 
   return (
     <PageWrapper>
-      <main>
+      <main className='min-h-[calc(100vh-10px)]'>
         <section>
-          <h1 className="text-5xl text-center mb-6">{movieDetails.title}</h1>
+          <h1 className="text-4xl sm:text-5xl text-center mb-6">{movieDetails.title}</h1>
           <div className='flex flex-col items-center'>
-            {
-              movieDetails.video_src === '' ? <Image
-                src={movieDetails.img_src}
-                alt={movieDetails.title}
-                width={300}
-                height={300}
-                className={`${CardStyles.card_img} h-[300px] object-cover`}
-              /> : <video
-                width="40%"
-                height="100%"
-                controls
-                autoPlay
-                muted
-                style={{ cursor: "pointer" }}
-              >
-                <source src={`${movieDetails.video_src}`} type="video/mp4" />
-                <source src="movie.ogg" type="video/ogg" />
-                Your browser does not support the video tag.
-              </video>
-            }
+            <div className="w-full lg:w-[40%] mb-8">
+              {
+                movieDetails.video_src === '' ?
+                  <Image
+                    src={movieDetails.img_src}
+                    alt={movieDetails.title}
+                    width={500}
+                    height={500}
+                    className={`${CardStyles.card_img} h-[300px] object-cover`}
+                  /> :
+                  <video
+                    height="100%"
+                    controls
+                    autoPlay
+                    muted
+                    style={{ cursor: "pointer" }}
+                    className='rounded-lg'
+                  >
+                    <source src={`${movieDetails.video_src}`} type="video/mp4" />
+                    <source src="movie.ogg" type="video/ogg" />
+                    Your browser does not support the video tag.
+                  </video>
+              }
+            </div>
+
+            <p className='w-full lg:w-[40%]'>
+              {movieDetails.long_des}
+            </p>
           </div>
-          <p>
-            {movieDetails.long_des}
-          </p>
         </section>
       </main>
     </PageWrapper>

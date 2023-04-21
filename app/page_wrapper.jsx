@@ -38,23 +38,23 @@ const PageWrapper = ({ children }) => {
   return (
     <>
       <AnimatePresence mode='wait'>
-        {
-          boxes.map(box => {
-            return (
-              <motion.div
-                key={box.pathname}
-                initial={box.initial}
-                animate={box.animate}
-                transition={box.transition}
-                exit={box.exit}
-                className="relative"
-              >
-                <div className="w-full h-[300px] bg-[var(--secondary-tint-70)]">
-                </div>
-              </motion.div>
-            )
-          })
-        }
+        <div className="w-full h-screen fixed top-0">
+          {
+            boxes.map(box => {
+              return (
+                <motion.div
+                  key={box.id}
+                  initial={box.initial}
+                  animate={box.animate}
+                  transition={box.transition}
+                  exit={box.exit}
+                  className="w-full h-1/3 bg-[var(--secondary-tint-70)]"
+                >
+                </motion.div>
+              )
+            })
+          }
+        </div>
 
         <motion.div
           key={pathname}
@@ -63,8 +63,8 @@ const PageWrapper = ({ children }) => {
           transition={{ delay: 0.75, duration: 0.75, ease: "easeOut" }}
           exit={{ opacity: 1, }}
         >
-          <div className="w-full h-full absolute top-0 -z-1">
-            <div className="container py-4">
+          <div className="w-full h-full absolute top-0 bottom-0 -z-1">
+            <div className="container mx-auto pt-4">
               <Navbar />
               {children}
               <Footer />
