@@ -2,6 +2,9 @@ import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from './page.module.css'
 import PageWrapper from "./page_wrapper";
+import home_one_img from "../public/assets/images/home/home1.jpg";
+import home_two_img from "../public/assets/images/home/home2.jpg";
+import home_three_img from "../public/assets/images/home/home3.jpg";
 
 export default function Home() {
   const abouts = [
@@ -47,27 +50,30 @@ export default function Home() {
             <div className="grid grid-cols-2">
               <div className='col-start-2'>
                 <Image
-                  src="https://i.pinimg.com/564x/d5/9d/6e/d59d6e86c152c947eab8281e011d3cf2.jpg"
-                  alt="Hourglass"
+                  src={home_one_img}
+                  alt="Kim Da-mi First Image"
                   width={300}
+                  placeholder='blur'
                   height={300}
                   className='rounded-xl'
                 />
               </div>
               <div className='col-end-2'>
                 <Image
-                  src="/assets/images/home/home2.jpg"
-                  alt="Hourglass"
+                  src={home_two_img}
+                  alt="Kim Da-mi Second Image"
                   width={300}
+                  placeholder='blur'
                   height={300}
                   className='rounded-xl'
                 />
               </div>
               <div className='row-start-3 col-start-2'>
                 <Image
-                  src="https://i.pinimg.com/564x/73/82/e3/7382e3e0f29b22070e825dc8c1c1157f.jpg"
-                  alt="Hourglass"
+                  src={home_three_img}
+                  alt="Kim Da-mi Third Image"
                   width={300}
+                  placeholder='blur'
                   height={300}
                   className='rounded-xl'
                 />

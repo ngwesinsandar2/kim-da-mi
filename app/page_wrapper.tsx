@@ -1,17 +1,17 @@
 "use client";
 
 import Footer from "@/components/Footer";
-import Navbar from "@/components/navbar/Navbar";
+import Navbar from "@/components/Navbar";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from 'next/navigation';
+import { PropsWithChildren } from "react";
 
-const PageWrapper = ({ children }) => {
+const PageWrapper = ({ children }: PropsWithChildren) => {
   const pathname = usePathname();
 
   const boxes = [
     {
       id: 1,
-      key: pathname,
       initial: { x: "0", },
       animate: { x: "-100%", },
       transition: { delay: 0.3, duration: 0.75, ease: "easeOut" },
@@ -19,7 +19,6 @@ const PageWrapper = ({ children }) => {
     },
     {
       id: 2,
-      key: pathname,
       initial: { x: "0", },
       animate: { x: "-100%", },
       transition: { delay: 0.2, duration: 0.75, ease: "easeOut" },
@@ -27,7 +26,6 @@ const PageWrapper = ({ children }) => {
     },
     {
       id: 3,
-      key: pathname,
       initial: { x: "0", },
       animate: { x: "-100%", },
       transition: { duration: 0.75, ease: "easeOut" },
@@ -63,7 +61,7 @@ const PageWrapper = ({ children }) => {
           transition={{ delay: 0.75, duration: 0.75, ease: "easeOut" }}
           exit={{ opacity: 1, }}
         >
-          <div className="w-full h-full absolute top-0 bottom-0 -z-1">
+          <div className="w-full h-full absolute top-0 bottom-0 -z-1 overflow-x-hidden">
             <div className="container mx-auto pt-4">
               <Navbar />
               {children}

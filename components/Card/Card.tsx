@@ -15,10 +15,7 @@ interface CardData {
 const Card = ({ id, img_src, video_src, title, des, long_des, toLink }: CardData) => {
   return (
     <>
-      <Link href={{
-        pathname: toLink,
-        query: { cardData: JSON.stringify({ img_src, video_src, title, long_des }) },
-      }} className="block p-4 rounded-xl bg-[var(--primary-tint-80)]">
+      <Link href={toLink} className="block p-4 rounded-xl bg-[var(--primary-tint-80)]">
         <div className="flex flex-col md:flex-row items-center gap-6">
           <Image
             src={img_src}
